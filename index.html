@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <h1>TIC-TAC-TOE GAME</h1>
-    <h3>Project 1</h3>
+    <main class="main-wrapper">
+
+        <section class="game-section">
+            <div  class="round-counter-div">Round        <span id="round-counter-span">1</span>
+            <button id="reset-btn-top">End Game</button>
+            </div>
+
+            <div class="turn-tracker-div">Player <span id="player-turn-span">1</span>'s turn
+ 
+            </div>
+                    
+
+            <div class="board-popup-div">
+                <div class="popup-div">
+                    <div class="message-div"></div>
+                    <p>
+                        <button class="next-round-btn">Next Round</button>                  <button class="reset-btn-popup">End Game</button>
+                    </p>
+
+                </div>
+                <div class="board-div">
+                    <div data-num="1"></div>
+                    <div data-num="2"></div>
+                    <div data-num="3"></div>
+                    <div data-num="4"></div>
+                    <div data-num="5"></div>
+                    <div data-num="6"></div>
+                    <div data-num="7"></div>
+                    <div data-num="8"></div>
+                    <div data-num="9"></div>
+                </div>
+            </div>
+
+
+
+        </section>
+        
+        <section class="players-section">
+
+            <div class="player1-div">
+                <span id="player1-hearts-span">3</span>
+                Player 1
+            </div>
+
+            <div class="player2-div">
+                <span id="player2-hearts-span">3</span>
+                Player 2
+            </div>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
