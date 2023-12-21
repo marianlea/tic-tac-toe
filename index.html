@@ -4,63 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script defer src="app.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-
 <body>
-    <main class="main-wrapper">
-
+    <div class="game-div-wrapper">
         <section class="game-section">
-            <div  class="round-counter-div">Round        <span id="round-counter-span">1</span>
-            <button id="reset-btn-top">End Game</button>
-            </div>
-
-            <div class="turn-tracker-div">Player <span id="player-turn-span">1</span>'s turn
- 
-            </div>
-                    
-
-            <div class="board-popup-div">
-                <div class="popup-div">
-                    <div class="message-div"></div>
-                    <p>
-                        <button class="next-round-btn">Next Round</button>                  <button class="reset-btn-popup">End Game</button>
-                    </p>
-
+            <header>
+                <h1>Ghibli Tic-Tac-Toe</h1>
+                <h3>Round<span class ="round-counter-span">1</span></h3>
+            </header>
+            <div class="popup-div">
+                <div class="avatars-div">
+                        <img id="chihiro-img" data-num="1" src="images/chihiro-1.gif"  alt="">
+                        <img id="kiki-img" data-num="2" src="images/kiki-1.gif" alt="">
+                        <img id="ponyo-img" data-num="3" src="images/ponyo.gif" alt="">
+                        <img id="sophie-img" data-num="4" src="images/sophie-1.gif" alt="">
                 </div>
-                <div class="board-div">
-                    <div data-num="1"></div>
-                    <div data-num="2"></div>
-                    <div data-num="3"></div>
-                    <div data-num="4"></div>
-                    <div data-num="5"></div>
-                    <div data-num="6"></div>
-                    <div data-num="7"></div>
-                    <div data-num="8"></div>
-                    <div data-num="9"></div>
+                <img id="player1-turn-img" class="player1-turn-img"  src="images/kiki-1.gif" alt="">
+                <img id="player2-turn-img" class="player2-turn-img" src="images/kiki-1.gif" alt="">
+                <img class="winner-img" src="images/chihiro-1.gif" alt="">
+                <div class="message-popup">
+                    Enter player 1 name
                 </div>
+                <button class="reset-btn">Restart</button>
+                <button class="next-round-btn">Next round</button>
             </div>
-
-
-
+            <div class="board-div">
+                <img class="grid-img" src="images/grid.png" alt="">
+                <div data-num="1"></div>
+                <div data-num="2"></div>
+                <div data-num="3"></div>
+                <div data-num="4"></div>
+                <div data-num="5"></div>
+                <div data-num="6"></div>
+                <div data-num="7"></div>
+                <div data-num="8"></div>
+                <div data-num="9"></div>
+            </div>
         </section>
-        
+
         <section class="players-section">
-
             <div class="player1-div">
-                <span id="player1-hearts-span">3</span>
-                Player 1
-            </div>
-
+                <div class="player-details-div">
+                    <div class="chosen-avatar-div">
+                        <img id="player1-avatar-img" src="" alt="">
+                    </div>
+                    <div class="hp-name-div" id="player1-hp">
+                        <img id="player1-active-heart" src="images/heart.png" alt="">
+                        <img id="player1-active-heart" src="images/heart.png" alt="">
+                        <img id="player1-active-heart"
+                        src="images/heart.png" alt="">
+                        <input id="player1-name-input" type="text" 
+                        placeholder="Player 1 type here">
+                    </div>
+                </div>
+            </div>      
             <div class="player2-div">
-                <span id="player2-hearts-span">3</span>
-                Player 2
-            </div>
-
+                <div class="player-details-div">
+                    <div class="chosen-avatar-div">
+                        <!-- <img id="player2-avatar-img" src="images/kiki-1.gif" alt=""> -->
+                        <img id="player2-avatar-img" src="" alt="">
+                    </div>
+                    <div class="hp-name-div" id="player2-hp">
+                        <input id="player2-name-input"  type="text" 
+                        placeholder="Player 2 type here">
+                        <img id="player2-active-heart"  src="images/heart.png" alt="">
+                        <img id="player2-active-heart" src="images/heart.png" alt="">
+                        <img id="player2-active-heart" src="images/heart.png" alt="">
+                    </div>
+                </div>
+            </div>      
         </section>
-
-    </main>
-
+</div>
 </body>
 </html>

@@ -1,0 +1,143 @@
+*{
+    border: 1px solid orange;
+    box-sizing: border-box;
+}
+
+.game-div-wrapper {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+/* game section */
+.games-section {
+    text-align: center;
+}
+
+header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1, h3{
+    margin: 0 auto;
+    text-align: center;
+}
+/* popup div */
+.popup-div {
+    text-align: center;
+    position: absolute;
+    height: 50%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.71); 
+    width: 100%;
+}
+
+.popup-div img {
+    width: 20%;
+    margin: 5% 0;
+}
+
+.message-popup {
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.71); 
+}
+
+.player1-turn-img {
+    width: 50%;
+    display: none;
+}
+
+.player2-turn-img {
+    width: 50%;
+    display: none;
+}
+
+.reset-btn {
+    display: none;
+}
+
+.next-round-btn {
+    display: none;
+}
+
+.winner-img {
+    display: none;
+    width: 150px;
+}
+
+#remove-one-heart {
+    display: 'none';
+}
+/* board div */
+.grid-img {
+    z-index: -1;
+    position: absolute;
+    width: 490px;
+    margin: 0 auto;
+}
+
+.board-div {
+    place-self: center;
+    margin: 0 25%;
+    width: 490px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.board-div div {
+    width: 150px;
+    height: 150px;
+}
+
+.box-player-img {
+    width: 100px;
+    margin: auto;
+}
+
+/* players section */
+.players-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.player2-div {
+    text-align: right;
+}
+
+input {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
+.player2-div input {
+    text-align: right
+}
+
+.chosen-avatar-div {
+    width: 20%;
+}
+
+.chosen-avatar-div img {
+    width: 150px;
+    height: 150px;
+    align-self: right;
+}
+
+.hp-name-div img {
+    width: 7%;
+}
+
+#player1-avatar-img {
+    display: none;
+}
+
+#player2-avatar-img {
+    display: none;
+    transform: scaleX(-1);
+}
+
+.chosen-avatar-div {
+    width: 100%;
+}
