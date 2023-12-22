@@ -31,6 +31,10 @@ In making the game, I made sure to finish the game logic and functions first. Af
 
 Subsequently, for each feature that I added, I made sure that the feature is debugged (e.g. when choosing token on who goes first, everything else on the screen is unclickable) before moving on to adding the next feature for easier debugging.
 
+### Lessons Learnt
+Make sure the logic is 100% before jumping to CSS.
+
+
 ### Wireframes
 ![Tic-Tac-Toe Wireframes](./images/tic-tac-toe-wireframe.jpg)
 
