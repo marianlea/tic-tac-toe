@@ -1,45 +1,93 @@
 *{
-    /* border: 1px solid orange; */
     box-sizing: border-box;
+    font-family: 'VT323', monospace;
+}
+
+body {
+    margin: 0;
+}
+.music-icon-div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px 0 0;
+}
+
+.music-icon-div img {
+    width: 40px;
 }
 
 .game-div-wrapper {
-    display: grid;
-    grid-template-rows: 2fr 1fr;
+    background-image: url(images/background-sky.png);
+    background-size: cover;
+    height: 100vh;
 }
 
-/* game section */
 .games-section {
     text-align: center;
-}
-
-header {
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 h1, h3{
     margin: 0 auto;
     text-align: center;
+    letter-spacing: .3vw;
 }
-/* popup div */
+
+h1 {
+    font-size: 3.5vw;
+    color: #ffdd35;
+    text-shadow: 4px 2px 0px rgba(168, 119, 71, 0.84);
+    margin-top: -50px;
+}
+
+h3 {
+    color : #5C5C5C;
+    font-size: 2vw;
+}
+
 .popup-div {
     text-align: center;
     position: absolute;
-    height: 50%;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.71); 
+    height: 490px;
+    background-color: rgba(255, 255, 255, 0.23); 
     width: 100%;
+    margin-top: 60px;
 }
 
 .popup-div img {
-    width: 20%;
-    margin: 5% 0;
+    width: 19vw;
+}
+
+.popup-div img:hover {
+    transform: scale(1.5);
 }
 
 .message-popup {
-    font-size: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.71); 
+    font-size: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 999;
+    color: #ffe100db;
+    text-shadow: 4px 2px 0px rgba(168, 119, 71, 0.9);
+    background-color: rgba(163, 219, 255, 0.8); 
+    padding: 10px 0 15px;
+    letter-spacing: .3vw;
+}
+
+button {
+    margin: 10px 25px;
+    background-color: #63ceff;
+    border-radius: 12px;
+    border: 5px solid #62c6f5;
+    font-size: 1.8vw;
+    width: 200px;
+    height: 50px;
+    box-shadow: 0 5px 0 0#5eb4db;
+    color: #3d3d3d;
+}
+
+button:hover {
+    transform: scale(1.5);
 }
 
 .player1-turn-img {
@@ -68,12 +116,19 @@ h1, h3{
 #remove-one-heart {
     display: 'none';
 }
-/* board div */
+
 .grid-img {
     z-index: -1;
     position: absolute;
     width: 490px;
     margin: 0 auto;
+}
+
+.board-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 60px 0 20px;
 }
 
 .board-div {
@@ -84,31 +139,43 @@ h1, h3{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 20px;
+    background-image: url(images/grid.png);
+    background-size: cover;
 }
 
 .board-div div {
     width: 150px;
     height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .box-player-img {
-    width: 100px;
+    width: 150px;
     margin: auto;
 }
 
-/* players section */
 .players-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 0 10vw;
+    margin-top: 30px;
 }
 
 .player2-div {
     text-align: right;
 }
 
+.player2-div .hp-name-div {
+    justify-content: flex-end;
+}
+
 input {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin: 0 10px;
+    box-shadow: inset 2px 1px 1px 0;
 }
 
 .player2-div input {
@@ -116,17 +183,20 @@ input {
 }
 
 .chosen-avatar-div {
-    width: 20%;
+    text-align: right;
 }
 
 .chosen-avatar-div img {
-    width: 150px;
-    height: 150px;
-    align-self: right;
+    width: 40%;
 }
 
-.hp-name-div img {
-    width: 7%;
+.hp-name-div {
+    padding-top: 20px;
+    display: flex;
+}
+
+.hp-name-div > img {
+    height: 50px;
 }
 
 #player1-avatar-img {
@@ -140,4 +210,12 @@ input {
 
 .chosen-avatar-div {
     width: 100%;
+}
+
+
+.player1-turn-tracker-span, .player2-turn-tracker-span {
+    font-size: 2vw;
+    color: #ffdd35;
+    text-shadow: 4px 2px 0px rgba(168, 119, 71, 0.84);
+    display: none;
 }

@@ -1,6 +1,6 @@
 console.log('Ghibli Tic-Tac-Toe');
 
-// game state or globals
+
 let playerOne = {
     name : '',
     hearts : 0,
@@ -19,43 +19,41 @@ let playerTwo = {
 let whosTurn = null
 let roundCounter = 1
 
-
-// chache dom element references
-
-// player names, avatars, hp
 const playerOneNameElem = document.querySelector('#player1-name-input')
 const playerTwoNameElem = document.querySelector('#player2-name-input')
 const playerOneAvatarElem = document.querySelector('#player1-avatar-img')
 const playerTwoAvatarElem = document.querySelector('#player2-avatar-img')
 const playerOneHearts = document.querySelectorAll('#player1-active-heart')
 const playerTwoHearts = document.querySelectorAll('#player2-active-heart')
-
-// avatar choices
+const playerOneTurnTrackerElem = document.querySelectorAll('.player1-turn-tracker-span')
+const playerTwoTurnTrackerElem = document.querySelectorAll('.player2-turn-tracker-span')
 const chihiroElem = document.querySelector('#chihiro-img')
 const kikiElem = document.querySelector('#kiki-img')
 const ponyoElem = document.querySelector('#ponyo-img')
 const sophieElem = document.querySelector('#sophie-img')
 const avatarsContainerElem = document.querySelector('.avatars-div')
 const avatarArray = [chihiroElem, kikiElem, ponyoElem, sophieElem];
-// popup message
 const popupElem = document.querySelector('.popup-div')
 const popupMessageElem = document.querySelector('.message-popup')
 const playerOneTurnImgElem = document.querySelector('#player1-turn-img')
 const playerTwoTurnImgElem = document.querySelector('#player2-turn-img')
 const winnerElem = document.querySelector('.winner-img')
-// board / game
 const boxesElems = document.querySelectorAll('.board-div div')
 const roundCounterElem = document.querySelector('.round-counter-span')
-// buttons
 const resetElem = document.querySelector('.reset-btn')
 const nextRoundElem = document.querySelector('.next-round-btn')
-// event listeners
-// avatars
+const backgroundMusicElem = document.querySelector('#background-music')
+const playMusicElem = document.querySelector('#play-music-img')
+const muteMusicElem = document.querySelector('#mute-music-img')
+
+
+
 chihiroElem.addEventListener('click', handleSetPlayerAvatar)
 kikiElem.addEventListener('click', handleSetPlayerAvatar)
 ponyoElem.addEventListener('click', handleSetPlayerAvatar)
 sophieElem.addEventListener('click', handleSetPlayerAvatar)
-playerOneNameElem.addEventListener("blur", isPlayerOneNameFilled);
+playerOneNameElem.addEventListener('blur', isPlayerOneNameFilled);
+playerOneNameElem.addEventListener('focus', handleBackgroundMusic)
 playerTwoNameElem.addEventListener('blur', isPlayerTwoNameFilled)
 for (let boxElem of boxesElems) {
     boxElem.addEventListener('click', handleChoice)
@@ -64,24 +62,42 @@ playerOneTurnImgElem.addEventListener('click', handleWhoGoesFirst)
 playerTwoTurnImgElem.addEventListener('click', handleWhoGoesFirst)
 resetElem.addEventListener('click', handleReset)
 nextRoundElem.addEventListener('click', handleNextRound)
+playMusicElem.addEventListener('click', handleBackgroundMusic)
+muteMusicElem.addEventListener('click', handleMuteMusic)
 
 
 chihiroElem.style.pointerEvents = 'none'
 kikiElem.style.pointerEvents = 'none'
 ponyoElem.style.pointerEvents = 'none'
 sophieElem.style.pointerEvents = 'none'
+playerTwoNameElem.setAttribute('disabled', true)
 
 
-// event handlers
+function handleMuteMusic() {
+    backgroundMusicElem.muted = true
+}
+
+function handleBackgroundMusic() {
+    console.log('hey')
+    backgroundMusicElem.play()
+    backgroundMusicElem.muted = false
+    backgroundMusicElem.volume = 0.05
+}
+
 function handleSetPlayerAvatar(event) {
     if (!playerOne.avatar){
         playerOneAvatarElem.setAttribute("src", event.target.src)
         playerOne.avatar = event.target.src
         playerOneAvatarElem.style.display = 'block'
+        playerTwoNameElem.removeAttribute('disabled')
+        chihiroElem.style.pointerEvents = 'none'
+        kikiElem.style.pointerEvents = 'none'
+        ponyoElem.style.pointerEvents = 'none'
+        sophieElem.style.pointerEvents = 'none'
     } else if (!playerTwo.avatar) {
         playerTwoAvatarElem.setAttribute("src", event.target.src)
         playerTwo.avatar = event.target.src
-        playerTwoAvatarElem.style.display = 'block'
+        playerTwoAvatarElem.style.display = 'inline'
     } else {
         return;
     }
@@ -128,19 +144,17 @@ function isPlayerTwoNameFilled() {
 }
 
 function handleWhoGoesFirst(event) {
-    let pickedPlayer = event.target.src
-    if (pickedPlayer === playerOne.avatar) {
+    let pickedPlayer = event.target
+    if (pickedPlayer.src === playerOne.avatar) {
         whosTurn = playerOne
         playerTwoTurnImgElem.style.display = 'none'
         popupMessageElem.textContent = `${playerOne.name} will go first`
-        // console.log(whosTurn);
-        setTimeout(startGame, 1000)
+        setTimeout(startGame, 2000)
     } else {
         whosTurn = playerTwo
         playerOneTurnImgElem.style.display = 'none'
         popupMessageElem.textContent = `${playerTwo.name} will go first`
-        // console.log(whosTurn)
-        setTimeout(startGame, 1000)
+        setTimeout(startGame, 2000)
     }
 }
 
@@ -151,7 +165,6 @@ function handleChoice(event) {
     boxImgElem.className = 'box-player-img'
     choiceElem.appendChild(boxImgElem)
     const boxNumber = Number(choiceElem.dataset.num)
-
     choiceElem.style.pointerEvents = 'none'
     whosTurn.choicesArr.push(boxNumber)
     checkForWinningPattern(whosTurn.choicesArr)
@@ -160,12 +173,12 @@ function handleChoice(event) {
 
 function handleNextRound() {
     console.log('next round');
+    winnerElem.src = ''
     roundCounter++
     roundCounterElem.textContent = roundCounter
     popupElem.style.display = 'none'
     popupMessageElem.textContent = ''
     const boxTokensElems = document.querySelectorAll('.box-player-img')
-    const roundWinnerElem = document.querySelector('.round-winner-img')
     for (let boxTokenElem of boxTokensElems) {
         boxTokenElem.remove()
     }
@@ -174,19 +187,13 @@ function handleNextRound() {
     }
     playerOne.choicesArr.length = 0
     playerTwo.choicesArr.length = 0
-    if (roundWinnerElem === null) {
-        return
-    } else {
-        roundWinnerElem.remove()
-    }
-    handleChoice()
+    handleChoice
 }
 
 function handleReset() {
-    console.log('restarting....');
     roundCounter = 1
     roundCounterElem.textContent = roundCounter
-    popupElem.style.display = 'block'
+    popupElem.style.display = 'inline'
     popupMessageElem.textContent = 'Enter player 1 name'
     nextRoundElem.style.display = 'none'
     resetElem.style.display = 'none'
@@ -222,7 +229,11 @@ function handleReset() {
     playerTwoNameElem.removeAttribute('disabled')
     playerOneNameElem.value = null
     playerTwoNameElem.value = null
-
+    chihiroElem.style.pointerEvents = 'none'
+    kikiElem.style.pointerEvents = 'none'
+    ponyoElem.style.pointerEvents = 'none'
+    sophieElem.style.pointerEvents = 'none'
+    playerTwoNameElem.setAttribute('disabled', true)
     isPlayerOneNameFilled()
 }
 
@@ -233,15 +244,17 @@ function startGame() {
     popupMessageElem.style.display = 'none'
     playerOneTurnImgElem.style.display = 'none'
     playerTwoTurnImgElem.style.display = 'none'
-    console.log('finally! start the game');
 }
 
 function pickNextPlayer() {
+    
     if (whosTurn === playerOne) {
         whosTurn = playerTwo
     } else {
         whosTurn = playerOne
+
     }
+
 }
 
 function checkForWinningPattern(playerChoicesArr) {
@@ -281,32 +294,33 @@ function checkForWinningPattern(playerChoicesArr) {
 
             if (playerOne.hearts > 0 && playerTwo.hearts > 0) {
                 winnerElem.setAttribute('src', whosTurn.avatar)
-                winnerElem.style.display = 'block'
+                winnerElem.style.display = 'inline'
                 popupMessageElem.textContent = `${whosTurn.name} won round ${roundCounter}`
-                resetElem.style.display = 'block'
-                nextRoundElem.style.display = 'block'
-                popupElem.style.display = 'block'
+                resetElem.style.display = 'inline'
+                nextRoundElem.style.display = 'inline'
+                popupElem.style.display = 'inline'
                 popupMessageElem.style.display = 'block'
-                console.log(playerOne.hearts);
-                console.log(playerTwo.hearts);
-            } else {
-                const winnerElem = document.createElement('img')
-                winnerElem.className = 'winner-img'
-                winnerElem.setAttribute('src', whosTurn.avatar)
-                popupElem.appendChild(winnerElem)
-                resetElem.style.display = 'block'
+            } else if (playerOne.hearts === 0 || playerTwo.hearts === 0) {
+                if (playerOne.hearts === 0) {
+                    popupMessageElem.textContent = `${playerTwo.name} won the game!` 
+                    winnerElem.setAttribute('src', playerTwo.avatar)
+                } else if (playerTwo.hearts === 0) {
+                    popupMessageElem.textContent = `${playerOne.name} won the game!` 
+                    winnerElem.setAttribute('src', playerOne.avatar)
+                }
+                winnerElem.style.display = 'inline'
+                resetElem.style.display = 'inline'
                 nextRoundElem.style.display = 'none'
-                popupMessageElem.textContent = `${whosTurn.name} won the game!`
-                popupElem.style.display = 'block'
+                popupElem.style.display = 'inline'
                 popupMessageElem.style.display = 'block'
             }
-
-        } else if (totalBoxesFilled === totalBoxNumber) {
+        } else if (totalBoxesFilled === totalBoxNumber && matchingNumber < 3) {
+            winnerElem.setAttribute('src', '')
             popupMessageElem.textContent = 'DRAW!'
-            resetElem.style.display = 'block'
-            nextRoundElem.style.display = 'block'
-            popupElem.style.display = 'block'
+            resetElem.style.display = 'inline'
+            nextRoundElem.style.display = 'inline'
+            popupElem.style.display = 'inline'
             popupMessageElem.style.display = 'block'
-        }
+        } 
     }
 }
