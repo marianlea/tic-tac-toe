@@ -312,7 +312,9 @@ function checkForWinningPattern(playerChoicesArr) {
                 popupElem.style.display = 'inline'
                 popupMessageElem.style.display = 'block'
             }
-        } else if (totalBoxesFilled === totalBoxNumber && matchingNumber < 3) {
+        } 
+        
+        if (totalBoxesFilled === totalBoxNumber && matchingNumber < 3) {
             winnerElem.setAttribute('src', '')
             popupMessageElem.textContent = 'DRAW!'
             resetElem.style.display = 'inline'
