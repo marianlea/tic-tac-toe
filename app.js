@@ -78,7 +78,6 @@ function handleMuteMusic() {
 }
 
 function handleBackgroundMusic() {
-    console.log('hey')
     backgroundMusicElem.play()
     backgroundMusicElem.muted = false
     backgroundMusicElem.volume = 0.05
@@ -172,7 +171,6 @@ function handleChoice(event) {
 }
 
 function handleNextRound() {
-    console.log('next round');
     winnerElem.src = ''
     roundCounter++
     roundCounterElem.textContent = roundCounter
