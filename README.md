@@ -4,8 +4,7 @@
 
 ## About
 
-A simple Tictactoe game that gives off a nice and responsive interface for users to enjoy.
-
+A simple Tictactoe game with Ghibli Theme and has a responsive interface for users to enjoy.
 
 ## Technologies:
 * HTML
@@ -20,16 +19,15 @@ A simple Tictactoe game that gives off a nice and responsive interface for users
 * **Message Display** _:prompts round winner and overall game winner_
 * **Next Button**  _:starts another round_
 * **Restart Button** _:restarts the game_
-* **Hover Animation**
+* **Hover Button Animation**
 * **Background Music**
 * **Play Background Music Button**
 * **Mute Background Music Button**
 
 
 ### Approach
-In making the game, I made sure to finish the game logic and functions first. Afterwards, I planned out the features that I wanted in the game and then made the game layout. Lastly, I finished the project with adding the visuals and sounds. 
-
-Subsequently, for each feature that I added, I made sure that the feature is debugged (e.g. when choosing token on who goes first, everything else on the screen is unclickable) before moving on to adding the next feature for easier debugging.
+I first thought what theme will I have for the app and then created the wireframe.
+I spent sometime looking for images that I can use to finalise the theme in order to have a clearer vision of the end product. Once I collected all the images, I worked on the logic to calculate if there was a win or a draw in a round. Afterwards, I created the game layout while implementing the features that I wanted in the game one by one, for example, allowing the users to choose their names and avatars in the game, and keep track who is winning using hearts. I finished the project by adding the visuals and sounds. 
 
 ### Lessons Learnt
 Make sure the logic is 100% before jumping to CSS.

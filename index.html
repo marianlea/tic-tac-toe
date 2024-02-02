@@ -12,82 +12,71 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="game-div-wrapper">
-         <div class="music-icon-div">
+    <div class="main-div">
+        <div class="music-icon-div">
             <img id="play-music-img" src="images/play.png" alt="">
             <img id="mute-music-img" src="images/mute.png" alt="">
         </div>
             <header>
-                <h1>Ghibli Tic-Tac-Toe</h1>
-                <h3>Round<span class ="round-counter-span">1</span></h3>
+                <h1>Tic-Tac-Toe</h1>
+                <h3>Round <span id="roundCount">1</span></h3>
             </header>
-            <div class="popup-div">
-                <div class="avatars-div">
-                        <img id="chihiro-img" data-num="1" src="images/chihiro.gif"  alt="">
-                        <img id="kiki-img" data-num="2" src="images/kiki.gif" alt="">
-                        <img id="ponyo-img" data-num="3" src="images/ponyo.gif" alt="">
-                        <img id="sophie-img" data-num="4" src="images/sophie.gif" alt="">
+
+        <div class="game-wrapper">
+            <div class="message-wrapper-div">
+                <div class="avatar-wrapper-div">
+                    <img id="chihiro-img" src="images/chihiro.gif" alt="" class="avatar-choices-img">
+                    <img id="kiki-img" src="images/kiki.gif" alt="" class="avatar-choices-img">
+                    <img id="ponyo-img" src="images/ponyo.gif" alt="" class="avatar-choices-img">
+                    <img id="sophie-img" src="images/sophie.gif" alt="" class="avatar-choices-img">
                 </div>
-                <img id="player1-turn-img" class="player1-turn-img"  src="images/kiki.gif" alt="">
-                <img id="player2-turn-img" class="player2-turn-img" src="images/kiki.gif" alt="">
-                <img class="winner-img" src="images/chihiro.gif" alt="">
-                <div class="message-popup">
-                    Enter player 1 name
+                <div class="pick-turn-div">
+                    <img id="player1-turn-img" src="" alt="">
+                    <img id="player2-turn-img" src="" alt="">
                 </div>
-                <button class="reset-btn">Restart</button>
-                <button class="next-round-btn">Next round</button>
+                <div class="message-div">Player 1 enter your name below</div>
+                <div class="button-div">
+                    <button class="next-round-btn">Next Round</button>
+                    <button class="reset-btn">Restart</button>
+                </div>
             </div>
-            <div class="board-wrapper">
-                <div class="board-div">
-                    <img class="grid-img" src="images/grid.png" alt="">
-                    <div data-num="1"></div>
-                    <div data-num="2"></div>
-                    <div data-num="3"></div>
-                    <div data-num="4"></div>
-                    <div data-num="5"></div>
-                    <div data-num="6"></div>
-                    <div data-num="7"></div>
-                    <div data-num="8"></div>
-                    <div data-num="9"></div>
-                </div>
-            <!-- </div> -->
+            <div class="board-div">
+                <div data-num="1"></div>
+                <div data-num="2"></div>
+                <div data-num="3"></div>
+                <div data-num="4"></div>
+                <div data-num="5"></div>
+                <div data-num="6"></div>
+                <div data-num="7"></div>
+                <div data-num="8"></div>
+                <div data-num="9"></div>
+            </div>
         </div>
-        <section class="players-section">
+
+        <div class="player-details-div">
             <div class="player1-div">
-                <div class="player-details-div">
-                    <div class="hp-name-div" id="player1-hp">
-                        <img id="player1-active-heart" src="images/heart.png" alt="">
-                        <img id="player1-active-heart" src="images/heart.png" alt="">
-                        <img id="player1-active-heart"
-                        src="images/heart.png" alt="">
-                        <input id="player1-name-input" type="text" 
-                        placeholder=" Player 1 name "/>
-                    </div>
-                    <div class="chosen-avatar-div">
-                        <img id="player1-avatar-img" src="" alt="">
-                    </div>
+                <div class="player1-name-hearts">
+                    <img src="images/heart.png" alt="" class="active-hearts">
+                    <img src="images/heart.png" alt="" class="active-hearts">
+                    <img src="images/heart.png" alt="" class="active-hearts">
+                    <input class="player-name-input" type="text" placeholder="Player 1 name">
                 </div>
-            </div>      
+                <img src="images/kiki.gif" alt="" class="player1-avatar">
+            </div>
+            
             <div class="player2-div">
-                <div class="player-details-div">
-                    <div class="hp-name-div" id="pla
-                    yer2-hp">
-                        <input id="player2-name-input"  type="text" 
-                        placeholder=" Player 2 name "/>
-                        <img id="player2-active-heart"  src="images/heart.png" alt="" class="hey"/>
-                        <img id="player2-active-heart" src="images/heart.png" alt=""/>
-                        <img id="player2-active-heart" src="images/heart.png" alt=""/>
-                    </div>
-                    <div class="chosen-avatar-div">
-                        <img id="player2-avatar-img" src="" alt="">
-                    </div>
+                <div class="player2-name-hearts">
+                    <input class="player-name-input" type="text" placeholder="Player 2 name">
+                    <img src="images/heart.png" alt="" class="active-hearts">
+                    <img src="images/heart.png" alt="" class="active-hearts">
+                    <img src="images/heart.png" alt="" class="active-hearts">
                 </div>
-            </div>      
-        </section>
+                <img src="images/chihiro.gif" alt="" class="player2-avatar">
+            </div>
+        </div>
         <audio id="background-music" autoplay loop>
             <source src="sound/background-music.wav" type="audio/wav">
         </audio>
-</div>
+    </div>
 </body>
 </html>
