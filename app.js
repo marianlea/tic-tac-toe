@@ -37,6 +37,7 @@ const playerTwoTurnElem = document.querySelector('#player2-turn-img')
 const nextRoundElem = document.querySelector('.next-round-btn')
 const resetElem = document.querySelector('.reset-btn')
 const boxElems = document.querySelectorAll('.board-div div')
+const boardElem = document.querySelector('.board-div')
 const roundCountElem = document.querySelector('#roundCount')
 const backgroundMusicElem = document.querySelector('#background-music')
 const playMusicElem = document.querySelector('#play-music-img')
@@ -53,9 +54,6 @@ playerOneNameElem.addEventListener('blur', isPlayerOneNameFilled)
 playerTwoNameElem.addEventListener('blur', isPlayerTwoNameFilled)
 playerOneTurnElem.addEventListener('click', handlePickFirstTurn)
 playerTwoTurnElem.addEventListener('click', handlePickFirstTurn)
-for (let boxElem of boxElems) {
-    boxElem.addEventListener('click', handlePlayerChoice)
-}
 nextRoundElem.addEventListener('click', handleNextRound)
 resetElem.addEventListener('click', handleReset)
 playerOneNameElem.addEventListener('focus', handleBackgroundMusic)
@@ -154,6 +152,9 @@ function handleNextRound() {
     resetBoxElems()
     resetPlayersChoices()
     resetPlayersMatchesArr()
+    for (let boxElem of boxElems) {
+        boxElem.style.pointerEvents = 'auto'
+    }
     handlePlayerChoice
 }
 
@@ -184,8 +185,8 @@ function handleReset() {
     avatarChoicesElems.forEach(elem => elem.style.display = 'inline')
     messageElem.textContent = 'Player 1 enter your name below'
     playerTwoNameElem.setAttribute('disabled', true)
-    toggleAvatarPointerEvent(avatarWrapperElem)
-    toggleAvatarPointerEvent(avatarWrapperElem)
+    toggleAvatarPointerEvent()
+
     isPlayerOneNameFilled()
 }
 
@@ -215,7 +216,7 @@ function toggleResetBtnDisplay() {
     }
 }
 
-function toggleAvatarPointerEvent(avatarWrapperElem) {
+function toggleAvatarPointerEvent() {
     if (avatarWrapperElem.style.pointerEvents === 'auto') {
         avatarWrapperElem.style.pointerEvents = 'none'
     } else {
@@ -224,6 +225,10 @@ function toggleAvatarPointerEvent(avatarWrapperElem) {
 }
 
 function startGame() {
+    resetBoxElems()
+    for (let boxElem of boxElems) {
+        boxElem.addEventListener('click', handlePlayerChoice)
+    }
     toggleMessageElemDisplay()
     playerOne.hearts = playerOneHpElems.length
     playerTwo.hearts = playerTwoHpElems.length
@@ -275,6 +280,9 @@ function decideWinOrDraw (playerOne, playerTwo) {
         if (playerTwo.hearts === 0) {
             gameWinner()
         } else {
+            for (let boxElem of boxElems) {
+                boxElem.style.pointerEvents = 'none'
+            }
             playerOne.winOrLoss.push(1)
             playerTwo.winOrLoss.push(0)
             messageElem.textContent = `${playerOne.name} you won`
@@ -289,6 +297,9 @@ function decideWinOrDraw (playerOne, playerTwo) {
         if (playerOne.hearts === 0) {
             gameWinner()
         } else {
+            for (let boxElem of boxElems) {
+                boxElem.style.pointerEvents = 'none'
+            }
             playerOne.winOrLoss.push(0)
             playerTwo.winOrLoss.push(1)
             messageElem.textContent  = `${playerTwo.name} you won`
@@ -298,6 +309,9 @@ function decideWinOrDraw (playerOne, playerTwo) {
         }
         return
     } else if (!playerOne.matchesArr.includes(3) && !playerTwo.matchesArr.includes(3) && playerOne.choicesArr.length + playerTwo.choicesArr.length === 9) {
+        for (let boxElem of boxElems) {
+            boxElem.style.pointerEvents = 'none'
+        }
         playerOne.winOrLoss.push(0)
         playerTwo.winOrLoss.push(0)
         playerOneTurnElem.style.display = 'inline'
@@ -337,6 +351,7 @@ function gameWinner() {
             playerOneTurnElem.style.display = 'none'
             playerTwoTurnElem.style.display = 'inline'
             toggleMessageElemDisplay()
+
         } else {
             playerOne.winOrLoss.push(1)
             playerTwo.winOrLoss.push(0)
@@ -351,9 +366,8 @@ function gameWinner() {
 }
 
 
-// game flow 
-
+// game flow
 playerTwoNameElem.setAttribute('disabled', true)
-toggleAvatarPointerEvent(avatarWrapperElem)
-toggleAvatarPointerEvent(avatarWrapperElem)
+toggleAvatarPointerEvent()
+toggleAvatarPointerEvent()
 isPlayerOneNameFilled()

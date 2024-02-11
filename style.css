@@ -1,22 +1,35 @@
 * {
     box-sizing: border-box;
     font-family: 'VT323', monospace;
+    border: 1px solid salmon;
 }
 
 body {
     background-image: url(images/background-sky.png);
     background-size: cover;
     height: 100vh;
+    margin: 0;
+}
+
+.main-div {
+    width: 99vw;
+}
+
+.game-title-div {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:  flex-end;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .music-icon-div {
     display: flex;
     justify-content: flex-end;
-    padding: 20px 20px 0 0;
 }
 
-.music-icon-div img {
-    width: 40px;
+#play-music-img, #mute-music-img {
+    width: 3rem;
 }
 
 header {
@@ -39,7 +52,6 @@ h1 {
     font-size: 3.5vw;
     color: #ffdd35;
     text-shadow: 4px 2px 0px rgba(168, 119, 71, 0.84);
-    margin-top: -50px;
 }
 
 h3 {
@@ -50,8 +62,8 @@ h3 {
 .message-wrapper-div {
     text-align: center;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.23); 
-    width: 100%;
+    background-color: rgba(255, 255, 255, 0.23);
+    width: 100%; 
 }
 
 .message-div {
@@ -66,8 +78,9 @@ h3 {
     padding: 10px 0 15px;
     letter-spacing: .3vw;
 }
+
 .message-wrapper-div img {
-    width: 19vw;
+    width: 10rem;
 }
 
 button {
@@ -105,13 +118,13 @@ button:hover {
     background-size: cover;
 }
 
-.board-div div {
+/* .board-div div {
     width: 150px;
     height: 150px;
     background-size: 135px;
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
 .player-details-div {
     display: flex;
@@ -124,6 +137,7 @@ input {
     margin: 0 10px;
     box-shadow: inset 2px 1px 1px 0;
 }
+
 .player2-div input {
     text-align: right
 }
@@ -163,4 +177,273 @@ input {
     display: none;
     transform: scaleX(-1);
     margin-left: auto;
+}
+
+
+@media (min-width: 20rem) {
+    
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .main-div {
+        width: 100%;
+    }
+
+    .music-icon-div {
+        width: 100%;
+    }
+
+    #play-music-img, #mute-music-img {
+        width: 2rem;
+    }
+
+    .message-wrapper-div img {
+        width: 5rem;
+    }
+
+    .message-div {
+        font-size: 1.5rem;
+        text-shadow: 2px 1px 0px rgba(168, 119, 71, 0.9);
+        padding: 5px 0 7px;
+    }
+
+    .board-div {
+        width: 90%;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .board-div div {
+        width: 100%;
+        height: 6rem;
+        background-size: 6rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+    }
+
+    .next-round-btn, .reset-btn {
+        font-size: 1.2rem;
+    }
+
+    input {
+        font-size: 12px;
+        height: 20px;
+        margin: 0 3px
+    }
+
+    .player-name-input {
+        line-height: 1.5rem;
+    }
+
+    .active-hearts {
+        width: 20px;
+    }
+}
+
+@media (min-width: 24rem) {
+    .main-div {
+        margin-top: 1rem;
+    }
+    .board-div {
+        width: 24rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .board-div div {
+        width: 100%;
+        height: 7rem;
+        background-size: 7rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+    }
+
+    .message-wrapper-div img {
+        width: 10rem;
+    }
+
+}
+
+@media (min-width: 48rem) {
+    .board-div {
+        width: 40rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .board-div div {
+        width: 100%;
+        height: 12rem;
+        background-size: 12rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+    }
+}
+
+/* @media (min-width: 51.25rem) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h3{
+        font-size: 2.5rem;
+    }
+
+    .board-div {
+        width: 80%;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .board-div div {
+        width: 100%;
+        height: 8rem;
+        background-size: 10rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+    }
+
+    .message-wrapper-div img {
+        width: 10rem;
+    }
+
+    input {
+        font-size: 1.5rem;
+        height: 2rem;
+        margin: 3px;
+    }
+
+    .active-hearts {
+        width: 2rem;
+    }
+
+    #play-music-img, #mute-music-img {
+        width: 2.5rem;
+    }
+} */
+
+
+/* @media (min-width: 60rem) {
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    h3{
+        font-size: 3.5rem;
+    }
+
+    .board-div {
+        width: 80%;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .board-div div {
+        width: 100%;
+        height: 16rem;
+        background-size: 16rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+    }
+
+    .message-wrapper-div img {
+        width: 15rem;
+    }
+
+    input {
+        font-size: 1.5rem;
+        height: 2rem;
+        margin: 3px;
+    }
+
+    .active-hearts {
+        width: 2.5rem;
+    }
+
+    #play-music-img, #mute-music-img {
+        width: 3rem;
+    }
+
+    .player1-avatar, .player2-avatar {
+        width: 18rem;
+    }
+
+    .message-div {
+        font-size: 2.5rem;
+    }
+
+    .next-round-btn, .reset-btn {
+        font-size: 1.8rem;
+    }
+} */
+
+
+@media (min-width: 64rem) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    #play-music-img, #mute-music-img {
+        width: 3rem;
+    }
+
+    .main-div {
+        margin-top: 1rem;
+    }
+
+    .board-div {
+        width: 32rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .board-div div {
+        width: 100%;
+        height: 10rem;
+        background-size: 10rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+    }
+
+    .message-div {
+        font-size: 3rem;
+    }
+
+    .next-round-btn, .reset-btn {
+        font-size: 2.5rem;
+    }
+
+    .message-wrapper-div img {
+        width: 15rem;
+    }
+
+    input {
+        font-size: 2rem;
+        height: 2.5rem;
+        margin: 3px;
+    }
+
+    .active-hearts {
+        width: 3rem;
+    }
+
+    .player1-avatar, .player2-avatar {
+        width: 12rem;
+    }
+
 }
