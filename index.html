@@ -1,86 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ghibli Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script defer src="app.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="main-div">
-        <header>
-            <div class="game-title-div">
-                <h1>Tic-Tac-Toe</h1>
-                <div class="music-icon-div">
-                    <img id="play-music-img" src="images/play.png" alt="">
-                    <img id="mute-music-img" src="images/mute.0png" alt="">
-                </div>
-            </div>
-
-            <h3>Round <span id="roundCount">1</span></h3>
-
-        </header>
-
-        <div class="game-wrapper">
-            <div class="message-wrapper-div">
-                <div class="avatar-wrapper-div">
-                    <img id="chihiro-img" src="images/chihiro.gif" alt="" class="avatar-choices-img">
-                    <img id="kiki-img" src="images/kiki.gif" alt="" class="avatar-choices-img">
-                    <img id="ponyo-img" src="images/ponyo.gif" alt="" class="avatar-choices-img">
-                    <img id="sophie-img" src="images/sophie.gif" alt="" class="avatar-choices-img">
-                </div>
-                <div class="pick-turn-div">
-                    <img id="player1-turn-img" src="" alt="">
-                    <img id="player2-turn-img" src="" alt="">
-                </div>
-                <div class="message-div">Player 1 enter your name below</div>
-                <div class="button-div">
-                    <button class="next-round-btn">Next Round</button>
-                    <button class="reset-btn">Restart</button>
-                </div>
-            </div>
-            <div class="board-div">
-                <div data-num="1"></div>
-                <div data-num="2"></div>
-                <div data-num="3"></div>
-                <div data-num="4"></div>
-                <div data-num="5"></div>
-                <div data-num="6"></div>
-                <div data-num="7"></div>
-                <div data-num="8"></div>
-                <div data-num="9"></div>
-            </div>
+      <header>
+        <div class="game-title-div">
+          <h1>Tic-Tac-Toe</h1>
+          <div class="music-icon-div">
+            <img id="play-music-img" src="images/play.png" alt="" />
+            <img id="mute-music-img" src="images/mute.png" alt="" />
+          </div>
         </div>
 
-        <div class="player-details-div">
-            <div class="player1-div">
-                <div class="player1-name-hearts">
-                    <img src="images/heart.png" alt="" class="active-hearts">
-                    <img src="images/heart.png" alt="" class="active-hearts">
-                    <img src="images/heart.png" alt="" class="active-hearts">
-                    <input class="player-name-input" type="text" placeholder="Player 1 name">
-                </div>
-                <img src="images/kiki.gif" alt="" class="player1-avatar">
-            </div>
-            
-            <div class="player2-div">
-                <div class="player2-name-hearts">
-                    <input class="player-name-input" type="text" placeholder="Player 2 name">
-                    <img src="images/heart.png" alt="" class="active-hearts">
-                    <img src="images/heart.png" alt="" class="active-hearts">
-                    <img src="images/heart.png" alt="" class="active-hearts">
-                </div>
-                <img src="images/chihiro.gif" alt="" class="player2-avatar">
-            </div>
+        <h3>Round <span id="roundCount">1</span></h3>
+      </header>
+
+      <div class="game-wrapper">
+        <div class="message-wrapper-div">
+          <div class="avatar-wrapper-div">
+            <img
+              id="chihiro-img"
+              src="images/chihiro.gif"
+              alt=""
+              class="avatar-choices-img"
+            />
+            <img
+              id="kiki-img"
+              src="images/kiki.gif"
+              alt=""
+              class="avatar-choices-img"
+            />
+            <img
+              id="ponyo-img"
+              src="images/ponyo.gif"
+              alt=""
+              class="avatar-choices-img"
+            />
+            <img
+              id="sophie-img"
+              src="images/sophie.gif"
+              alt=""
+              class="avatar-choices-img"
+            />
+          </div>
+          <div class="pick-turn-div">
+            <img id="player1-turn-img" src="" alt="" />
+            <img id="player2-turn-img" src="" alt="" />
+          </div>
+          <div class="message-div">Player 1 enter your name below</div>
+          <div class="button-div">
+            <button class="next-round-btn">Next Round</button>
+            <button class="reset-btn">Restart</button>
+          </div>
         </div>
-        <audio id="background-music" autoplay loop>
-            <source src="sound/background-music.wav" type="audio/wav">
-        </audio>
+        <div class="board-div">
+          <div data-num="1"></div>
+          <div data-num="2"></div>
+          <div data-num="3"></div>
+          <div data-num="4"></div>
+          <div data-num="5"></div>
+          <div data-num="6"></div>
+          <div data-num="7"></div>
+          <div data-num="8"></div>
+          <div data-num="9"></div>
+        </div>
+      </div>
+
+      <div class="player-details-div">
+        <div class="player1-div">
+          <div class="player1-name-hearts">
+            <img src="images/heart.png" alt="" class="active-hearts" />
+            <img src="images/heart.png" alt="" class="active-hearts" />
+            <img src="images/heart.png" alt="" class="active-hearts" />
+            <input
+              class="player-name-input"
+              type="text"
+              placeholder="Player 1 name"
+            />
+          </div>
+          <img src="images/kiki.gif" alt="" class="player1-avatar" />
+        </div>
+
+        <div class="player2-div">
+          <div class="player2-name-hearts">
+            <input
+              class="player-name-input"
+              type="text"
+              placeholder="Player 2 name"
+            />
+            <img src="images/heart.png" alt="" class="active-hearts" />
+            <img src="images/heart.png" alt="" class="active-hearts" />
+            <img src="images/heart.png" alt="" class="active-hearts" />
+          </div>
+          <img src="images/chihiro.gif" alt="" class="player2-avatar" />
+        </div>
+      </div>
+      <audio id="background-music" autoplay loop>
+        <source src="sound/background-music.wav" type="audio/wav" />
+      </audio>
     </div>
-</body>
+  </body>
 </html>
